@@ -1,31 +1,46 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
+    <footer>
+      <div>Window Size = {{ windowWidth }} x {{ windowHeight }}</div>
+    </footer>
   </div>
 </template>
 
+<script>
+import WindowInstanceMap from "./WindowinstanceMap.js"
+
+export default {
+  computed: {
+    windowWidth() {
+      let width = WindowInstanceMap.windowWidth
+      document.body.style.setProperty('--windowWidth', width + 'px')
+      return width
+    },
+    windowHeight() {
+      let height = WindowInstanceMap.windowHeight
+      document.body.style.setProperty('--windowHeight', height + 'px')
+      return height
+    }
+  }
+};
+</script>
+
 <style>
+body {
+  --windowWidth: 600;
+  --windowHeight: 300;
+}
+html, body {
+  max-width: --windowWidth;
+  max-height: --windowHeight;
+  overflow: hidden;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>
