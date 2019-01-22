@@ -7,28 +7,28 @@
       :loop="true"
       :centerMode="true"
       :perPage="1"
-      :perPageCustom="[[768, 1], [1024, 2]]"
       :navigation="false"
       :paginationEnabled="false"
+      :adjustableHeight="false"
     >
       <slide>
         <h1>Costalot Coffee</h1>
-        <img alt="Vue logo" src="./assets/logo.png">
+        <img alt="Vue logo" src="./assets/logo.png" :height="imageHeight">
         <h1>Special Offers Today</h1>
       </slide>
       <slide>
         <h1>Costalot Coffee</h1>
-        <img alt="Vue logo" src="./assets/logo.png">
+        <img alt="Vue logo" src="./assets/coffee-cup.jpg" :height="imageHeight">
         <h1>Buy One Get One Free</h1>
       </slide>
       <slide>
         <h1>Costalot Coffee</h1>
-        <img alt="Vue logo" src="./assets/logo.png">
+        <img alt="Vue logo" src="./assets/logo.png" :height="imageHeight">
         <h1>Two Adults One Child Free</h1>
       </slide>
       <slide>
         <h1>Costalot Coffee</h1>
-        <img alt="Vue logo" src="./assets/logo.png">
+        <img alt="Vue logo" src="./assets/logo.png" :height="imageHeight">
         <h1>30% Off Pot Of Tea</h1>
       </slide>
     </carousel>
@@ -52,9 +52,15 @@ export default {
       let height = WindowInstanceMap.windowHeight
       document.body.style.setProperty('--windowHeight', height + 'px')
       return height
+    },
+    imageWidth() {
+      return WindowInstanceMap.windowWidth * 0.50 +'px'
+    },
+    imageHeight() {
+      return WindowInstanceMap.windowHeight * 0.50 +'px'
     }
   }
-};
+}
 </script>
 
 <style>
