@@ -1,0 +1,1 @@
+body{--windowWidth:600;--windowHeight:300}body,html{max-width:--windowWidth;max-height:--windowHeight;overflow:hidden}#app{font-family:Avenir,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-align:center;color:#2c3e50}
