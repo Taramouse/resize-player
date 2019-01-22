@@ -1,6 +1,37 @@
 <template>
   <div id="app">
-    <router-view/>
+    <carousel
+      :autoplay="true"
+      :autoplayHoverPause="false"
+      :autoplayTimeout="2000"
+      :loop="true"
+      :centerMode="true"
+      :perPage="1"
+      :perPageCustom="[[768, 1], [1024, 2]]"
+      :navigation="false"
+      :paginationEnabled="false"
+    >
+      <slide>
+        <h1>Costalot Coffee</h1>
+        <img alt="Vue logo" src="./assets/logo.png">
+        <h1>Special Offers Today</h1>
+      </slide>
+      <slide>
+        <h1>Costalot Coffee</h1>
+        <img alt="Vue logo" src="./assets/logo.png">
+        <h1>Buy One Get One Free</h1>
+      </slide>
+      <slide>
+        <h1>Costalot Coffee</h1>
+        <img alt="Vue logo" src="./assets/logo.png">
+        <h1>Two Adults One Child Free</h1>
+      </slide>
+      <slide>
+        <h1>Costalot Coffee</h1>
+        <img alt="Vue logo" src="./assets/logo.png">
+        <h1>30% Off Pot Of Tea</h1>
+      </slide>
+    </carousel>
     <footer>
       <div>Window Size = {{ windowWidth }} x {{ windowHeight }}</div>
     </footer>
