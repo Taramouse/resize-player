@@ -1,4 +1,4 @@
 module.exports = {
   lintOnSave: false,
-  publicPath: 'resize-player'
+  // publicPath: 'resize-player'
 }
