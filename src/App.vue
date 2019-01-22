@@ -3,7 +3,7 @@
     <carousel
       :autoplay="true"
       :autoplayHoverPause="false"
-      :autoplayTimeout="2000"
+      :autoplayTimeout="2500"
       :loop="true"
       :centerMode="true"
       :perPage="1"
@@ -11,30 +11,12 @@
       :paginationEnabled="false"
       :adjustableHeight="false"
     >
-      <slide>
-        <h1>Costalot Coffee</h1>
-        <img alt="Vue logo" src="./assets/logo.png" :height="imageHeight">
-        <h1>Special Offers Today</h1>
-      </slide>
-      <slide>
-        <h1>Costalot Coffee</h1>
-        <img alt="Vue logo" src="./assets/coffee-cup.jpg" :height="imageHeight">
-        <h1>Buy One Get One Free</h1>
-      </slide>
-      <slide>
-        <h1>Costalot Coffee</h1>
-        <img alt="Vue logo" src="./assets/logo.png" :height="imageHeight">
-        <h1>Two Adults One Child Free</h1>
-      </slide>
-      <slide>
-        <h1>Costalot Coffee</h1>
-        <img alt="Vue logo" src="./assets/logo.png" :height="imageHeight">
-        <h1>30% Off Pot Of Tea</h1>
+      <slide v-for="slide in slides" :key="slide.id">
+        <h1>{{slide.title}}</h1>
+        <img alt="slide image" :src="slide.imgUrl" :height="imageHeight">
+        <h1>{{slide.message}}</h1>
       </slide>
     </carousel>
-    <footer>
-      <div>Window Size = {{ windowWidth }} x {{ windowHeight }}</div>
-    </footer>
   </div>
 </template>
 
@@ -42,6 +24,16 @@
 import WindowInstanceMap from "./WindowinstanceMap.js"
 
 export default {
+  data() {
+    return {
+      slides: [
+        { id: 0, title: 'Costa Coffee', imgUrl: './img/logo.png', message: 'Todays Special Offers' },
+        { id: 1, title: 'Costa Coffee', imgUrl: './img/coffee-cup.jpg', message: 'Two for the price of one.' },
+        { id: 2, title: 'Costa Coffee', imgUrl: './img/pizza.jpg', message: 'One childs meal free with two adults.' },
+        { id: 3, title: 'Costa Coffee', imgUrl: './img/coffee-cups.jpeg', message: '30% off milky coffee.' }
+      ]
+    }
+  },
   computed: {
     windowWidth() {
       let width = WindowInstanceMap.windowWidth
