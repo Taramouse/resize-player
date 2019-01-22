@@ -17,6 +17,7 @@
         <h1>{{slide.message}}</h1>
       </slide>
     </carousel>
+    <div>Window Size = {{ windowWidth }} x {{ windowHeight }}</div>
   </div>
 </template>
 
